@@ -1,0 +1,109 @@
+<UserControl
+	x:Class="DeSafeZoneProtection.MainWindow" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:local="clr-namespace:DeSafeZoneProtection">
+    <Grid>
+        <CheckBox
+			Content="Plugin Enabled"
+			HorizontalAlignment="Left"
+			Margin="10,10,0,0"
+			VerticalAlignment="Top"
+			IsChecked="{Binding Path=Enabled}" />
+        <Grid
+			HorizontalAlignment="Left"
+			Margin="0,61,0,53"
+			Width="275"
+			IsEnabled="{Binding Path=Enabled}" RenderTransformOrigin="0.491,0.591">
+            <TextBox
+				Name="distTextBox"
+				HorizontalAlignment="Left"
+				Height="20"
+				Margin="58,4,0,0"
+				TextWrapping="Wrap"
+				Text="TextBox"
+				VerticalAlignment="Top"
+				Width="60"
+				TextChanged="TextBox_TextChanged" />
+            <Label
+				Content="Range"
+				HorizontalAlignment="Left"
+				Margin="10,0,0,0"
+				VerticalAlignment="Top" />
+            <CheckBox
+				Content="Damage"
+				HorizontalAlignment="Left"
+				Margin="10,60,0,0"
+				VerticalAlignment="Top"
+				IsChecked="{Binding Path=Damage}" />
+            <Label
+				Content="Features to unmark"
+				HorizontalAlignment="Left"
+				Margin="10,34,0,0"
+				VerticalAlignment="Top" />
+            <CheckBox
+				Content="Shooting"
+				HorizontalAlignment="Left"
+				Margin="10,80,0,0"
+				VerticalAlignment="Top"
+				IsChecked="{Binding Path=Shooting}" />
+            <CheckBox
+				Content="Welding"
+				HorizontalAlignment="Left"
+				Margin="10,100,0,0"
+				VerticalAlignment="Top"
+				IsChecked="{Binding Path=Welding}" />
+            <CheckBox
+				Content="Building"
+				HorizontalAlignment="Left"
+				Margin="10,120,0,0"
+				VerticalAlignment="Top"
+				IsChecked="{Binding Path=Building}" />
+            <CheckBox
+				Content="Grinding"
+				HorizontalAlignment="Left"
+				Margin="10,140,0,0"
+				VerticalAlignment="Top"
+				IsChecked="{Binding Path=Grinding}" />
+            <CheckBox
+				Content="Drilling"
+				HorizontalAlignment="Left"
+				Margin="10,160,0,0"
+				VerticalAlignment="Top"
+				IsChecked="{Binding Path=Drilling}" />
+            <CheckBox
+				Content="Voxel Hands"
+				HorizontalAlignment="Left"
+				Margin="10,180,0,0"
+				VerticalAlignment="Top"
+				IsChecked="{Binding Path=VoxelHands}" />
+            <CheckBox
+				Content="Landing Gear Lock"
+				HorizontalAlignment="Left"
+				Margin="10,200,0,0"
+				VerticalAlignment="Top"
+				IsChecked="{Binding Path=LandingGearsLock}" />
+            <CheckBox
+				Content="Conversion to station"
+				HorizontalAlignment="Left"
+				Margin="10,220,0,0"
+				VerticalAlignment="Top"
+				IsChecked="{Binding Path=ConvertToStation}" />
+            <CheckBox
+				Content="Building Projections"
+				HorizontalAlignment="Left"
+				Margin="10,240,0,0"
+				VerticalAlignment="Top"
+				IsChecked="{Binding BuildingProjections}" />
+        </Grid>
+        <Label
+			Content="Safe Zone Settings"
+			HorizontalAlignment="Left"
+			Margin="10,30,0,0"
+			VerticalAlignment="Top" />
+        <Button
+			Content="Save Config"
+			HorizontalAlignment="Left"
+			Margin="119,10,0,0"
+			VerticalAlignment="Top"
+			Width="75"
+			Click="Button_Click" />
+    </Grid>
+</UserControl>

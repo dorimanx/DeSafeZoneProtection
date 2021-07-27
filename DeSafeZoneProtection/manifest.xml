@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<PluginManifest xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Name>DeSafeZoneProtection</Name>
+  <Guid>d85130c3-c658-482a-ded7-e5b027ba9dab</Guid>
+  <Repository>None</Repository>
+  <Version>v1.0.9</Version>
+</PluginManifest>
