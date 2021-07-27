@@ -33,36 +33,36 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="NLog">
-      <HintPath>C:\SERVER1-TEST\NLog.dll</HintPath>
+      <HintPath>..\TorchBinaries\NLog.dll</HintPath>
     </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
     <Reference Include="Sandbox.Game">
-      <HintPath>C:\SERVER1-TEST\DedicatedServer64\Sandbox.Game.dll</HintPath>
+      <HintPath>..\GameBinaries\Sandbox.Game.dll</HintPath>
     </Reference>
     <Reference Include="SpaceEngineers.Game">
-      <HintPath>C:\SERVER1-TEST\DedicatedServer64\SpaceEngineers.Game.dll</HintPath>
+      <HintPath>..\GameBinaries\SpaceEngineers.Game.dll</HintPath>
     </Reference>
     <Reference Include="SpaceEngineers.ObjectBuilders">
-      <HintPath>C:\SERVER1-TEST\DedicatedServer64\SpaceEngineers.ObjectBuilders.dll</HintPath>
+      <HintPath>..\GameBinaries\SpaceEngineers.ObjectBuilders.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xaml" />
     <Reference Include="Torch">
-      <HintPath>C:\SERVER1-TEST\Torch.dll</HintPath>
+      <HintPath>..\TorchBinaries\Torch.dll</HintPath>
     </Reference>
     <Reference Include="Torch.API">
-      <HintPath>C:\SERVER1-TEST\Torch.API.dll</HintPath>
+      <HintPath>..\TorchBinaries\Torch.API.dll</HintPath>
     </Reference>
     <Reference Include="VRage.Game">
-      <HintPath>C:\SERVER1-TEST\DedicatedServer64\VRage.Game.dll</HintPath>
+      <HintPath>..\GameBinaries\VRage.Game.dll</HintPath>
     </Reference>
     <Reference Include="VRage.Library">
-      <HintPath>C:\SERVER1-TEST\DedicatedServer64\VRage.Library.dll</HintPath>
+      <HintPath>..\GameBinaries\VRage.Library.dll</HintPath>
     </Reference>
     <Reference Include="VRage.Math">
-      <HintPath>C:\SERVER1-TEST\DedicatedServer64\VRage.Math.dll</HintPath>
+      <HintPath>..\GameBinaries\VRage.Math.dll</HintPath>
     </Reference>
     <Reference Include="WindowsBase" />
   </ItemGroup>
@@ -94,6 +94,9 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="manifest.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
