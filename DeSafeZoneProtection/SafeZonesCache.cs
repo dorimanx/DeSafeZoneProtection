@@ -17,34 +17,29 @@ namespace DeSafeZoneProtection
         {
             loading = true;
 
-            lock (this)
+            try
             {
-                try
+                if (!File.Exists(path))
+                    using (StreamWriter text = File.CreateText(path)) text.WriteLine("");
+
+                string str = File.ReadAllText(path);
+                if (!(string.IsNullOrEmpty(str) || str.Length < 10))
                 {
-                    if (!File.Exists(path))
-                    {
-                        using (StreamWriter text = File.CreateText(path))
-                            text.WriteLine("");
-                    }
-                    string str = File.ReadAllText(path);
-                    if (!(string.IsNullOrEmpty(str) || str.Length < 10))
-                    {
-                        Enumerable.ForEach(delegate (KeyValuePair<long, string> b)
-                         {
-                             _ = Cache.Append(b);
-                         });
-                    }
+                    Enumerable.ForEach(delegate (KeyValuePair<long, string> b)
+                     {
+                         _ = Cache.Append(b);
+                     });
                     DeSafeZoneProtectionPlugin.Log.Info("Cache Reloading...");
                 }
-                catch (Exception ex)
-                {
-                    DeSafeZoneProtectionPlugin.Log.Error(ex);
-                    DeSafeZoneProtectionPlugin.Log.Warn("Error in cache loading!");
-                }
-                finally
-                {
-                    loading = false;
-                }
+            }
+            catch (Exception ex)
+            {
+                DeSafeZoneProtectionPlugin.Log.Error(ex);
+                DeSafeZoneProtectionPlugin.Log.Warn("Error in cache loading!");
+            }
+            finally
+            {
+                loading = false;
             }
         }
 
@@ -65,26 +60,29 @@ namespace DeSafeZoneProtection
             if (loading)
                 return;
 
-            lock (this)
+            try
             {
-                try
+                if (!File.Exists(path))
                 {
-                    if (!File.Exists(path))
-                    {
-                        using (StreamWriter text = File.CreateText(path))
-                            text.WriteLine("");
-                    }
+                    using (StreamWriter text = File.CreateText(path))
+                        text.WriteLine("");
+                }
 
-                    File.WriteAllText(path, string.Join("\n", Values()));
-                    DeSafeZoneProtectionPlugin.Log.Info("Cache Saving...");
-                }
-                catch (Exception ex)
+                lock (this)
                 {
-                    DeSafeZoneProtectionPlugin.Log.Error(ex);
-                    DeSafeZoneProtectionPlugin.Log.Warn("Error in cache saving!");
+                    var ValuesToWrite = Values().Count();
+
+                    if (ValuesToWrite > 0)
+                        File.WriteAllText(path, string.Join("\n", Values()));
                 }
-                return;
+                DeSafeZoneProtectionPlugin.Log.Info("Cache Saving...");
             }
+            catch (Exception ex)
+            {
+                DeSafeZoneProtectionPlugin.Log.Error(ex);
+                DeSafeZoneProtectionPlugin.Log.Warn("Error in cache saving!");
+            }
+            return;
         }
 
         private IEnumerable<string> Values()
